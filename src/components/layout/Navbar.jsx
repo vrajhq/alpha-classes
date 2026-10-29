@@ -16,14 +16,16 @@ export const Navbar = () => {
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100">
       {/* Top Bar */}
       <div className="bg-secondary-900 text-white py-2 text-xs font-medium px-4 sm:px-8 flex justify-between items-center">
-        <div className="hidden sm:block">GSEB & CBSE · Gujarati & English Medium</div>
         <div className="flex items-center space-x-3 md:space-x-4">
-          <a href="tel:+919825662320" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span className="truncate">98256 62320</span>
-          </a>
-          <a href="tel:+919979708980" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span className="truncate">99797 08980</span>
-          </a>
+          <div className="block text-[10px] sm:text-xs opacity-90 hidden xs:block">GSEB & CBSE · Gujarati & English Medium</div>
+          <div className="flex items-center space-x-3 md:space-x-4 border-l border-white/20 pl-3 md:pl-0">
+            <a href="tel:+919825662320" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
+              <Phone size={12} /> <span className="truncate">98256 62320</span>
+            </a>
+            <a href="tel:+919979708980" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
+              <Phone size={12} /> <span className="truncate">99797 08980</span>
+            </a>
+          </div>
         </div>
       </div>
 
