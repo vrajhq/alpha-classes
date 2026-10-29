@@ -33,14 +33,16 @@ export const LeadForm = () => {
               </div>
             </div>
 
-              <motion.form
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                action="https://formsubmit.co/contact.alphaclasses@gmail.com"
-                method="POST"
-                className="bg-white p-8 rounded-2xl shadow-xl space-y-4 text-gray-900"
-              >
+            <motion.form
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              className="bg-white p-8 rounded-2xl shadow-xl space-y-4 text-gray-900"
+            >
+              <input type="hidden" name="access_key" value="b260dccb-7c7d-4f2e-bbdc-a61e41df3183" />
+              <input type="hidden" name="subject" value="New Lead from Alpha Classes Website" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-gray-700">Full Name</label>
