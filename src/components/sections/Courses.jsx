@@ -49,12 +49,13 @@ export const Courses = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex"
             >
-              <Card title={course.title} description={course.description}>
-                <div className="mb-6 p-3 bg-primary-50 w-fit rounded-xl">
+              <Card title={course.title} description={course.description} className="w-full flex flex-col items-center text-center">
+                <div className="mb-6 p-3 bg-primary-50 w-fit rounded-xl mx-auto">
                   {course.icon}
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex flex-col items-center">
                   {course.features.map((feat, i) => (
                     <li key={i} className="flex items-center space-x-2 text-sm text-gray-600">
                       <div className="w-1.5 h-1.5 bg-primary-500 rounded-full" />
