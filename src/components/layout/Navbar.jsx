@@ -17,12 +17,12 @@ export const Navbar = () => {
       {/* Top Bar */}
       <div className="bg-secondary-900 text-white py-2 text-xs font-medium px-4 sm:px-8 flex justify-between items-center">
         <div className="hidden sm:block">GSEB & CBSE · Gujarati & English Medium</div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3 md:space-x-4">
           <a href="tel:+919825662320" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span>98256 62320</span>
+            <Phone size={12} /> <span className="truncate">98256 62320</span>
           </a>
           <a href="tel:+919979708980" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span>99797 08980</span>
+            <Phone size={12} /> <span className="truncate">99797 08980</span>
           </a>
         </div>
       </div>
