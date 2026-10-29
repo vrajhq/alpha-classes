@@ -55,7 +55,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-primary-400 shrink-0" />
-                <span>contact@alphaclasses.com</span>
+                <span>contact.alphaclasses@gmail.com</span>
               </li>
             </ul>
           </div>
