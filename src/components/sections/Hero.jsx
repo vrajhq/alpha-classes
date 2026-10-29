@@ -44,7 +44,7 @@ export const Hero = () => {
             className="text-5xl lg:text-8xl font-black tracking-tighter mb-4 leading-none text-left"
           >
             <span className="text-white block">ALPHA</span>
-            <span className="text-primary-500 block">CLASSES</span>
+            <span className="text-red-600 block">CLASSES</span>
           </motion.h1>
 
           <motion.p
