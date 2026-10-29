@@ -8,8 +8,13 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div className="space-y-6">
-            <div className="text-2xl font-extrabold text-white tracking-tight">
-              ALPHA<span className="text-primary-400">CLASSES</span>
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                <span className="text-primary-500 font-black text-2xl">A</span>
+              </div>
+              <div className="text-2xl font-extrabold text-white tracking-tight">
+                ALPHA<span className="text-primary-400">CLASSES</span>
+              </div>
             </div>
             <p className="text-gray-400 leading-relaxed">
               Dedicated to excellence in education, providing top-tier coaching for GSEB and CBSE standards to shape the future of students.
