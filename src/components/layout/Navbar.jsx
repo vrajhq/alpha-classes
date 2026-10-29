@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 
 export const Navbar = () => {
@@ -60,19 +61,43 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-4 text-base font-medium text-gray-600 hover:text-primary-500"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-[60] md:hidden p-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="relative bg-white/80 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden"
+          >
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <div className="text-xl font-black tracking-tighter">
+                <span className="text-secondary-900">ALPHA </span>
+                <span className="text-primary-500">CLASSES</span>
+              </div>
+              <button onClick={() => setIsOpen(false)} className="text-gray-500 p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <X size={24} />
+              </button>
+            </div>
+            <div className="p-6 space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block px-6 py-4 text-lg font-semibold text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-2xl transition-all duration-200 active:scale-95"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            <div className="p-6 bg-gray-50/50 border-t border-gray-100">
+               <p className="text-center text-xs text-gray-400 font-medium">© 2026 Alpha Classes</p>
+            </div>
+          </motion.div>
         </div>
       )}
     </nav>
