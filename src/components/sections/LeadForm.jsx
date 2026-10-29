@@ -3,23 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Send } from 'lucide-react';
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
-import { Send } from 'lucide-react';
-
 export const LeadForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Redirect to Tally for data entry and database storage
-    // We use window.location.href to send the user to the Tally form
-    window.location.href = "https://tally.so/r/ArrgLe";
-  };
-
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +37,8 @@ export const LeadForm = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              onSubmit={handleSubmit}
+              action="https://formsubmit.co/contact.alphaclasses@gmail.com"
+              method="POST"
               className="bg-white p-8 rounded-2xl shadow-xl space-y-4 text-gray-900"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -121,8 +106,8 @@ export const LeadForm = () => {
               </div>
 
               <Button variant="primary" type="submit" className="w-full flex items-center justify-center space-x-2 py-4 bg-primary-600 hover:bg-primary-700">
-                <span>{isSubmitting ? 'Redirecting...' : 'Request Call Back'}</span>
-                {!isSubmitting && <Send size={18} />}
+                <span>Request Call Back</span>
+                <Send size={18} />
               </Button>
             </motion.form>
           </div>
