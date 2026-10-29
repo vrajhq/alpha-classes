@@ -18,7 +18,7 @@ export const Footer = () => {
               <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
+              <a href="https://www.instagram.com/alpha_classes_anand?dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
                 <Instagram size={20} />
               </a>
               <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
@@ -48,7 +48,10 @@ export const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="text-primary-400 shrink-0" />
-                <span>+91 99999 99999</span>
+                <span className="flex flex-col">
+                  <a href="tel:+919825662320" className="hover:text-primary-400 transition-colors">+91 98256 62320</a>
+                  <a href="tel:+919979708980" className="hover:text-primary-400 transition-colors">+91 99797 08980</a>
+                </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-primary-400 shrink-0" />
