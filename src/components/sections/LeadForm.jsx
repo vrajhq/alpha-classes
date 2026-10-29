@@ -39,40 +39,40 @@ export const LeadForm = () => {
               viewport={{ once: true }}
               action="https://api.web3forms.com/submit"
               method="POST"
-              className="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-xl space-y-4 text-gray-900"
+              className="bg-white p-5 md:p-8 rounded-xl md:rounded-2xl shadow-xl space-y-3 text-gray-900"
             >
               <input type="hidden" name="access_key" value="b260dccb-7c7d-4f2e-bbdc-a61e41df3183" />
               <input type="hidden" name="subject" value="New Lead from Alpha Classes Website" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Full Name</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-gray-700">Full Name</label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Phone Number</label>
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-gray-700">Phone Number</label>
                   <input
                     type="tel"
                     name="phone"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
                     placeholder="+91 00000 00000"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Standard</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-gray-700">Standard</label>
                   <select
                     name="standard"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all bg-white"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all bg-white"
                   >
                     <option value="">Select Standard</option>
                     <option value="9th">9th</option>
@@ -83,12 +83,12 @@ export const LeadForm = () => {
                     <option value="12th Commerce">12th Commerce</option>
                   </select>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Medium</label>
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-gray-700">Medium</label>
                   <select
                     name="medium"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all bg-white"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all bg-white"
                   >
                     <option value="">Select Medium</option>
                     <option value="english">English</option>
@@ -97,19 +97,19 @@ export const LeadForm = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Message / More Details</label>
+              <div className="space-y-1">
+                <label className="text-xs font-semibold text-gray-700">Message / More Details</label>
                 <textarea
                   name="message"
-                  rows="3"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                  rows="2"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
                   placeholder="Tell us more about your requirements..."
                 ></textarea>
               </div>
 
-              <Button variant="primary" type="submit" className="w-full flex items-center justify-center space-x-2 py-4 bg-primary-600 hover:bg-primary-700">
+              <Button variant="primary" type="submit" className="w-full flex items-center justify-center space-x-2 py-3 bg-primary-600 hover:bg-primary-700 text-sm">
                 <span>Request Call Back</span>
-                <Send size={18} />
+                <Send size={16} />
               </Button>
             </motion.form>
           </div>
