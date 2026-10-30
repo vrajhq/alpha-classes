@@ -37,16 +37,19 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-2">
+          {/* Desktop Nav - Modern Glass Capsule Style */}
+          <div className="hidden md:flex items-center space-x-1 bg-gray-100/50 p-1 rounded-full border border-gray-200/50 backdrop-blur-sm">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-gray-700 hover:text-primary-600 font-semibold transition-all duration-300 rounded-full hover:bg-primary-50 relative group"
+                className={`px-5 py-2 text-sm font-bold transition-all duration-300 rounded-full ${
+                  link.name === 'Home'
+                    ? 'bg-white text-secondary-900 shadow-sm scale-105'
+                    : 'text-gray-600 hover:text-primary-600 hover:bg-white/50'
+                }`}
               >
-                <span className="relative z-10">{link.name}</span>
-                <span className="absolute inset-0 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full bg-primary-100/50" />
+                {link.name}
               </a>
             ))}
           </div>
