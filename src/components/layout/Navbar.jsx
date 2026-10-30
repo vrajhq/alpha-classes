@@ -12,6 +12,25 @@ export const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const id = href.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        const navbarHeight = 100; // account for fixed navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navbarHeight,
+          behavior: 'smooth',
+        });
+      }
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100">
       {/* Top Bar */}
@@ -49,6 +68,7 @@ export const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`px-5 py-2 text-sm font-bold transition-all duration-300 rounded-full ${
                   link.name === 'Home'
                     ? 'bg-white text-secondary-900 shadow-sm scale-105'
@@ -98,7 +118,7 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className="block px-6 py-4 text-lg font-semibold text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-2xl transition-all duration-200 active:scale-95"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>

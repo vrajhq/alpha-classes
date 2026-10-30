@@ -7,7 +7,12 @@ export const Hero = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth',
+      });
     }
   };
 

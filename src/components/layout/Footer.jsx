@@ -2,6 +2,24 @@ import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export const Footer = () => {
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const id = href.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        const navbarHeight = 100;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navbarHeight,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,10 +49,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="hover:text-primary-400 transition-colors">Home</a></li>
-              <li><a href="#courses" className="hover:text-primary-400 transition-colors">Courses</a></li>
-              <li><a href="#about" className="hover:text-primary-400 transition-colors">About Us</a></li>
-              <li><a href="#contact" className="hover:text-primary-400 transition-colors">Contact</a></li>
+              <li><a href="#" onClick={(e) => handleNavClick(e, '#')} className="hover:text-primary-400 transition-colors">Home</a></li>
+              <li><a href="#courses" onClick={(e) => handleNavClick(e, '#courses')} className="hover:text-primary-400 transition-colors">Courses</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-primary-400 transition-colors">About Us</a></li>
+              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-primary-400 transition-colors">Contact</a></li>
             </ul>
           </div>
 
