@@ -103,7 +103,7 @@ export const LeadForm = () => {
                   name="message"
                   rows="2"
                   className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
-                  placeholder="Tell us more about your requirements..."
+                  placeholder="Hi, I want to enquire about coaching at Alpha Classes, Anand."
                 ></textarea>
               </div>
 
