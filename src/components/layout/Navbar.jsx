@@ -31,9 +31,15 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <div className="text-2xl font-black tracking-tighter">
-              <span className="text-secondary-900">ALPHA </span>
-              <span className="text-primary-500">CLASSES</span>
+            <div className="text-2xl md:text-3xl font-black tracking-tighter flex items-center space-x-1">
+              <span className="text-secondary-900 relative">
+                ALPHA
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-secondary-900 rounded-full opacity-20"></span>
+              </span>
+              <span className="text-primary-600 relative">
+                CLASSES
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary-600 rounded-full opacity-30"></span>
+              </span>
             </div>
           </div>
 
