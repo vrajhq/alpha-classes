@@ -38,14 +38,15 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-primary-500 font-semibold transition-colors"
+                className="px-4 py-2 text-gray-700 hover:text-primary-600 font-semibold transition-all duration-300 rounded-full hover:bg-primary-50 relative group"
               >
-                {link.name}
+                <span className="relative z-10">{link.name}</span>
+                <span className="absolute inset-0 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full bg-primary-100/50" />
               </a>
             ))}
           </div>
