@@ -37,7 +37,7 @@ function App() {
       <Footer />
 
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
+      <div className="fixed bottom-6 right-6 flex flex-col space-y-6 z-50">
         <a
           href="tel:+919825662320"
           className="p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center min-w-[56px] min-h-[56px]"
@@ -52,7 +52,7 @@ function App() {
           className="p-0 bg-transparent text-white rounded-full shadow-2xl hover:scale-110 transition-all transform flex items-center justify-center min-w-[64px] min-h-[64px]"
           aria-label="WhatsApp Us"
         >
-          <img src="/whatsapp-logo.png" alt="WhatsApp" className="w-16 h-16" />
+          <img src="/whatsapp-logo.png" alt="WhatsApp" className="w-16 h-16" loading="lazy" />
         </a>
       </div>
     </div>
