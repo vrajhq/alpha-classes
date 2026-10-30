@@ -109,8 +109,14 @@ export const LeadForm = () => {
                   </select>
                 </div>
                 <div className="space-y-1">
-                  {/* Empty space to keep grid balanced on desktop */}
-                  <div className="hidden sm:block"></div>
+                  <label className="text-xs font-semibold text-gray-700">Current School</label>
+                  <input
+                    type="text"
+                    name="school"
+                    required
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                    placeholder="e.g. St. Mary's School"
+                  />
                 </div>
               </div>
 
