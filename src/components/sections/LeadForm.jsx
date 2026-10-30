@@ -43,6 +43,12 @@ export const LeadForm = () => {
             >
               <input type="hidden" name="access_key" value="b260dccb-7c7d-4f2e-bbdc-a61e41df3183" />
               <input type="hidden" name="subject" value="New Lead from Alpha Classes Website" />
+
+              {/* Honeypot Field to prevent bots */}
+              <div className="hidden">
+                <input type="text" name="bot_field" tabIndex="-1" autocomplete="off" />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
                   <label className="text-xs font-semibold text-gray-700">Full Name</label>
