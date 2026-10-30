@@ -17,7 +17,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative h-[85vh] min-h-[500px] sm:min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image with exact Overlay */}
       <div
         className="absolute inset-0 z-0"
@@ -46,7 +46,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl lg:text-8xl font-black tracking-tighter mb-4 leading-none text-left"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter mb-4 leading-none text-left"
           >
             <span className="text-white block">ALPHA</span>
             <span className="text-red-600 block">CLASSES</span>
@@ -56,7 +56,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg lg:text-xl text-gray-200 mb-10 font-normal leading-relaxed text-left max-w-xl"
+            className="text-base sm:text-lg lg:text-xl text-gray-200 mb-10 font-normal leading-relaxed text-left max-w-xl"
           >
             GSEB & CBSE coaching for Std 9 to 12 — with JEE, NEET and GUJCET
             preparation under one roof.
