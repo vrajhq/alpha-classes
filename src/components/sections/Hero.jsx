@@ -20,12 +20,18 @@ export const Hero = () => {
     <section className="relative h-[85vh] min-h-[500px] sm:min-h-[600px] flex items-center overflow-hidden bg-secondary-900">
       {/* Background Image with exact Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
-          alt="Students studying together"
-          className="w-full h-full object-contain sm:object-cover object-center"
-          loading="eager"
-        />
+        <picture className="block h-full w-full">
+          <source
+            media="(max-width: 639px)"
+            srcSet="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=900&h=1300&fit=crop&crop=faces&auto=format"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+            alt="Students studying together"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+        </picture>
         <div className="absolute inset-0 bg-secondary-900/70 backdrop-brightness-75" />
       </div>
 
