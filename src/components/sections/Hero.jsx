@@ -23,7 +23,7 @@ export const Hero = () => {
         <picture className="block h-full w-full">
           <source
             media="(max-width: 639px)"
-            srcSet="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&h=1300&q=80"
+            srcSet="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&h=1300&q=80"
           />
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
