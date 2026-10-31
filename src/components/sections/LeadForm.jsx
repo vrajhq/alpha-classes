@@ -5,15 +5,13 @@ import { Send } from 'lucide-react';
 
 export const LeadForm = () => {
   return (
-    <section id="contact" className="py-12 md:py-24 bg-white">
+    <section id="contact" className="bg-white py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-primary-700 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-16 text-white relative overflow-hidden shadow-2xl">
-          {/* Background Accent */}
-          <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-primary-800 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
+        <div className="relative overflow-hidden bg-secondary-900 p-6 text-white md:p-10 lg:p-16">
+          <div className="absolute inset-y-0 left-0 w-1 bg-primary-500" aria-hidden="true" />
+          <div className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <h2 className="text-2xl font-bold leading-tight md:text-3xl lg:text-4xl">
                 Get a Free Call Back <br />
                 <span className="text-primary-200">Start Your Journey Today</span>
               </h2>
@@ -21,13 +19,13 @@ export const LeadForm = () => {
                 Not sure which course is right for you? Our expert counselors are here to guide you.
                 Fill out the form and we'll get back to you within 24 hours.
               </p>
-              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 text-sm font-medium text-primary-200">
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-medium text-primary-200 lg:justify-start">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="h-px w-4 bg-primary-300" aria-hidden="true" />
                   <span>Quick Response</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-white rounded-full" />
+                  <span className="h-px w-4 bg-primary-300" aria-hidden="true" />
                   <span>Expert Guidance</span>
                 </div>
               </div>
@@ -39,7 +37,7 @@ export const LeadForm = () => {
               viewport={{ once: true }}
               action="https://api.web3forms.com/submit"
               method="POST"
-              className="bg-white p-5 md:p-8 rounded-xl md:rounded-2xl shadow-xl space-y-3 text-gray-900"
+              className="space-y-3 bg-white p-5 text-gray-900 md:p-8"
             >
               <input type="hidden" name="access_key" value="b260dccb-7c7d-4f2e-bbdc-a61e41df3183" />
               <input type="hidden" name="subject" value="New Lead from Alpha Classes Website" />

@@ -1,69 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '../ui/Card';
-import { BookOpen, Microscope, Calculator, Trophy } from 'lucide-react';
 
 export const Courses = () => {
   const courseData = [
     {
       title: 'Std 9 & 10',
-      description: 'Foundation years focus',
+      description: 'Build strong foundations across core subjects.',
       features: ['All Main Subjects', 'Conceptual Clarity', 'Regular Tests', 'Personalized Attention'],
-      icon: <BookOpen className="text-primary-600" size={24} />,
     },
     {
       title: 'Std 11 & 12',
-      description: 'Specialized Stream Coaching',
+      description: 'Focused support for senior secondary studies.',
       features: ['Science Stream', 'Commerce Stream', 'Deep Dive Theory', 'Practical Application'],
-      icon: <Microscope className="text-primary-600" size={24} />,
     },
     {
       title: 'Competitive Exams',
-      description: 'Targeting Top Ranks',
+      description: 'Structured preparation for entrance exams.',
       features: ['JEE Main & Advanced', 'NEET Preparation', 'GUJCET Focus', 'Mock Test Series'],
-      icon: <Trophy className="text-primary-600" size={24} />,
     },
     {
       title: 'Learning Mediums',
-      description: 'Comfort in your language',
+      description: 'Learn in the language that works for you.',
       features: ['English Medium', 'Gujarati Medium', 'Bilingual Support', 'Simplified Notes'],
-      icon: <Calculator className="text-primary-600" size={24} />,
     },
   ];
 
   return (
-    <section id="courses" className="py-24 bg-gray-50">
+    <section id="courses" className="bg-[#f5f7fa] py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Comprehensive Courses</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Tailored educational programs designed to meet the needs of every student, from basic foundation to advanced competitive goals.
+        <div className="mb-12 max-w-2xl md:mb-16">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">Coaching for every next step.</h2>
+          <p className="text-gray-600 leading-relaxed">
+            From school foundations to entrance exam preparation, find the support that fits your goals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
           {courseData.map((course, index) => (
             <motion.div
-              key={index}
+              key={course.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex"
+              className="border-t-2 border-primary-500 bg-white px-6 py-7 md:px-8 md:py-9"
             >
-              <Card title={course.title} description={course.description} className="w-full flex flex-col items-center text-center">
-                <div className="mb-6 p-3 bg-primary-50 w-fit rounded-xl mx-auto">
-                  {course.icon}
+              <div className="mb-7 flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="mb-2 text-xl font-bold text-secondary-900 md:text-2xl">{course.title}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600">{course.description}</p>
                 </div>
-                <ul className="space-y-3 flex flex-col items-center">
-                  {course.features.map((feat, i) => (
-                    <li key={i} className="flex items-center space-x-2 text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-primary-500 rounded-full" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+                <span className="font-mono text-sm text-primary-600" aria-hidden="true">0{index + 1}</span>
+              </div>
+              <ul className="grid grid-cols-1 gap-x-4 gap-y-3 border-t border-gray-100 pt-5 sm:grid-cols-2">
+                {course.features.map((feature) => (
+                  <li key={feature} className="flex items-baseline gap-2 text-sm text-gray-700">
+                    <span className="text-primary-600" aria-hidden="true">—</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

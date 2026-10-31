@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
-import { GraduationCap } from 'lucide-react';
 
 export const Hero = () => {
   const scrollToSection = (id) => {
@@ -17,8 +16,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-[85vh] min-h-[500px] sm:min-h-[600px] flex items-center overflow-hidden bg-secondary-900">
-      {/* Background Image with exact Overlay */}
+    <section className="relative flex min-h-[600px] h-[85vh] items-center overflow-hidden bg-secondary-900">
       <div className="absolute inset-0 z-0">
         <picture className="block h-full w-full">
           <source
@@ -28,11 +26,11 @@ export const Hero = () => {
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
             alt="Students studying together"
-            className="w-full h-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
             loading="eager"
           />
         </picture>
-        <div className="absolute inset-0 bg-secondary-900/70 backdrop-brightness-75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/95 via-secondary-900/75 to-secondary-900/40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -41,10 +39,10 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 bg-primary-500 text-white px-3 py-1 rounded-full text-[10px] font-bold mb-6 shadow-lg uppercase tracking-wider"
+            className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-white"
           >
-            <GraduationCap size={12} />
-            <span>Admissions open 2026–27</span>
+            <span className="h-px w-8 bg-primary-400" aria-hidden="true" />
+            <span>Admissions open · 2026–27</span>
           </motion.div>
 
           <motion.h1
@@ -61,7 +59,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-200 mb-10 font-normal leading-relaxed text-left max-w-xl"
+            className="mb-10 max-w-xl text-base font-normal leading-relaxed text-gray-200 sm:text-lg lg:text-xl"
           >
             GSEB & CBSE coaching for Std 9 to 12 — with JEE, NEET and GUJCET
             preparation under one roof.

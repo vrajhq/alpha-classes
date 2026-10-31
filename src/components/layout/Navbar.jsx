@@ -57,9 +57,9 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav ref={navRef} className="fixed w-full z-50 bg-white border-b border-gray-100">
+    <nav ref={navRef} className="fixed z-50 w-full border-b border-gray-200 bg-white">
       {/* Top Bar */}
-      <div className="bg-secondary-900 text-white py-2 text-xs font-medium px-4 sm:px-8 flex justify-between items-center">
+      <div className="flex items-center justify-between bg-secondary-900 px-4 py-2 text-xs font-medium text-white sm:px-8">
         <div className="hidden sm:block">GSEB & CBSE · Gujarati & English Medium</div>
         <div className="flex items-center space-x-3 md:space-x-4">
           <a href="tel:+919825662320" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
@@ -73,32 +73,21 @@ export const Navbar = () => {
 
       {/* Main Nav */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <div className="text-2xl md:text-3xl font-black tracking-tighter flex items-center space-x-1">
-              <span className="text-secondary-900 relative">
-                ALPHA
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-secondary-900 rounded-full opacity-20"></span>
-              </span>
-              <span className="text-primary-600 relative">
-                CLASSES
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary-600 rounded-full opacity-30"></span>
-              </span>
+            <div className="text-2xl font-black tracking-[-0.06em] md:text-3xl">
+              <span className="text-secondary-900">ALPHA</span>
+              <span className="text-primary-600"> CLASSES</span>
             </div>
           </div>
 
-          {/* Desktop Nav - Modern Glass Capsule Style */}
-          <div className="hidden md:flex items-center space-x-1 bg-gray-100/50 p-1 rounded-full border border-gray-200/50 backdrop-blur-sm">
+          <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`px-5 py-2 text-sm font-bold transition-all duration-300 rounded-full ${
-                  link.name === 'Home'
-                    ? 'bg-white text-secondary-900 shadow-sm scale-105'
-                    : 'text-gray-600 hover:text-primary-600 hover:bg-white/50'
-                }`}
+                className="border-b border-transparent py-2 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-600 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
               >
                 {link.name}
               </a>

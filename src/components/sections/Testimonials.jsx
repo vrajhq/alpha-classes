@@ -25,39 +25,34 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="bg-white py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="mb-12 max-w-2xl md:mb-16">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">What students say.</h2>
+          <p className="text-gray-600">
             Join hundreds of students who have achieved their academic dreams with our guidance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
           {reviews.map((review, index) => (
             <motion.div
-              key={index}
+              key={review.name}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 relative"
+              className="flex flex-col border-t border-gray-200 pt-6"
             >
-              <div className="flex mb-4">
+              <div className="mb-4 flex" role="img" aria-label={`${review.rating} out of 5 stars`}>
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star key={i} size={15} className="text-primary-600 fill-primary-600" aria-hidden="true" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic leading-relaxed">"{review.text}"</p>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600">
-                  {review.name[0]}
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">{review.name}</div>
-                  <div className="text-sm text-gray-500">{review.role}</div>
-                </div>
+              <p className="mb-7 flex-grow leading-relaxed text-gray-700">“{review.text}”</p>
+              <div className="border-t border-gray-100 pt-4">
+                <div className="font-bold text-secondary-900">{review.name}</div>
+                <div className="text-sm text-gray-500">{review.role}</div>
               </div>
             </motion.div>
           ))}

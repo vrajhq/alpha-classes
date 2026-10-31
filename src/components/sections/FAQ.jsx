@@ -27,16 +27,16 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="bg-[#f5f7fa] py-20 md:py-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+        <div className="mb-12 md:mb-14">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">A few things you might be wondering.</h2>
           <p className="text-gray-600">Everything you need to know about joining Alpha Classes.</p>
         </div>
 
-        <div className="space-y-4">
+        <div className="divide-y divide-gray-200 border-y border-gray-200">
           {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            <FAQItem key={faq.question} index={index} question={faq.question} answer={faq.answer} />
           ))}
         </div>
       </div>
@@ -44,32 +44,38 @@ export const FAQ = () => {
   );
 };
 
-const FAQItem = ({ question, answer }) => {
+const FAQItem = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const answerId = `faq-answer-${index}`;
 
   return (
-    <div className="border border-gray-200 rounded-2xl overflow-hidden transition-all hover:border-primary-300">
+    <div>
       <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={answerId}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+        className="flex w-full items-center justify-between gap-5 py-5 text-left text-secondary-900 transition-colors hover:text-primary-700"
       >
-        <span className="font-semibold text-gray-900">{question}</span>
-        {isOpen ? <ChevronUp size={20} className="text-gray-500" /> : <ChevronDown size={20} className="text-gray-500" />}
+        <span className="font-semibold">{question}</span>
+        {isOpen ? <ChevronUp size={20} className="shrink-0 text-primary-600" aria-hidden="true" /> : <ChevronDown size={20} className="shrink-0 text-gray-500" aria-hidden="true" />}
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="p-5 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 bg-gray-50/50">
-              {answer}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div id={answerId}>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="max-w-2xl pb-5 pr-8 leading-relaxed text-gray-600">
+                {answer}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
