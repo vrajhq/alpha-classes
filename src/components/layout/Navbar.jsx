@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Navbar = () => {
@@ -111,12 +111,19 @@ export const Navbar = () => {
               ref={menuButtonRef}
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="grid h-12 w-12 place-content-center gap-[5px] rounded-[17px] border border-white/40 bg-gradient-to-br from-primary-500/90 to-purple-600/90 text-white shadow-lg shadow-primary-900/20 backdrop-blur-xl transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+              className="grid h-12 w-12 place-content-center gap-[6px] rounded-[17px] border border-white/20 bg-secondary-900 text-white shadow-lg shadow-secondary-900/20 transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-controls="mobile-navigation"
               aria-expanded={isOpen}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? (
+                <X size={24} />
+              ) : (
+                <span aria-hidden="true" className="grid gap-[6px]">
+                  <span className="h-[3px] w-6 rounded-full bg-white" />
+                  <span className="h-[3px] w-6 rounded-full bg-white" />
+                </span>
+              )}
             </button>
           </div>
         </div>
