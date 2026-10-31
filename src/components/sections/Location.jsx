@@ -41,6 +41,9 @@ export const Location = () => {
                   <a href="tel:+919825662320" className="text-sm text-gray-600 hover:text-primary-600 transition-colors">
                     +91 98256 62320
                   </a>
+                  <a href="tel:+919979708980" className="block text-sm text-gray-600 hover:text-primary-600 transition-colors">
+                    +91 99797 08980
+                  </a>
                 </div>
               </div>
 
