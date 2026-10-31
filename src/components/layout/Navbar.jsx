@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef(null);
+  const menuButtonRef = useRef(null);
 
   const navLinks = [
     { name: 'Home', href: '#' },
@@ -31,8 +32,32 @@ export const Navbar = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (!navRef.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
-    <nav className="fixed w-full z-50 bg-white border-b border-gray-100">
+    <nav ref={navRef} className="fixed w-full z-50 bg-white border-b border-gray-100">
       {/* Top Bar */}
       <div className="bg-secondary-900 text-white py-2 text-xs font-medium px-4 sm:px-8 flex justify-between items-center">
         <div className="hidden sm:block">GSEB & CBSE · Gujarati & English Medium</div>
@@ -47,7 +72,7 @@ export const Navbar = () => {
       </div>
 
       {/* Main Nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <div className="text-2xl md:text-3xl font-black tracking-tighter flex items-center space-x-1">
@@ -82,54 +107,44 @@ export const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 p-2">
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="grid h-12 w-12 place-content-center gap-[5px] rounded-[17px] border border-white/40 bg-gradient-to-br from-primary-500/90 to-purple-600/90 text-white shadow-lg shadow-primary-900/20 backdrop-blur-xl transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-controls="mobile-navigation"
+              aria-expanded={isOpen}
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="fixed inset-0 z-[60] md:hidden p-4">
+        {/* Mobile Nav */}
+        {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: -20 }}
+            id="mobile-navigation"
+            initial={{ opacity: 0, scale: 0.96, y: -8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="relative bg-white/80 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden"
+            transition={{ duration: 0.18 }}
+            className="absolute right-4 top-full z-[60] mt-2 w-56 overflow-hidden rounded-2xl border border-white/60 bg-white/80 shadow-2xl shadow-secondary-900/20 backdrop-blur-2xl md:hidden"
           >
-            <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <div className="text-xl font-black tracking-tighter">
-                <span className="text-secondary-900">ALPHA </span>
-                <span className="text-primary-500">CLASSES</span>
-              </div>
-              <button onClick={() => setIsOpen(false)} className="text-gray-500 p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <X size={24} />
-              </button>
-            </div>
-            <div className="p-6 space-y-3">
+            <div className="space-y-1 p-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block px-6 py-4 text-lg font-semibold text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-2xl transition-all duration-200 active:scale-95"
+                  className="block rounded-xl px-4 py-3 text-base font-semibold text-gray-700 transition-colors hover:bg-primary-50 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>
               ))}
             </div>
-            <div className="p-6 bg-gray-50/50 border-t border-gray-100">
-               <p className="text-center text-xs text-gray-400 font-medium">© 2026 Alpha Classes</p>
-            </div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 };
