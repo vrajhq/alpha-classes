@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Button = ({ children, variant = 'primary', className = '', ...props }) => {
+export const Button = ({ children, variant = 'primary', className = '', type = 'button', ...props }) => {
   const variants = {
     primary: 'bg-primary-600 text-white hover:bg-primary-700 shadow-md',
     secondary: 'bg-secondary-500 text-white hover:bg-secondary-600 shadow-md',
@@ -12,6 +12,7 @@ export const Button = ({ children, variant = 'primary', className = '', ...props
 
   return (
     <button
+      type={type}
       className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 active:scale-95 ${variantClass} ${className}`}
       {...props}
     >

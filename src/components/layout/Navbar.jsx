@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Phone, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,27 +9,14 @@ export const Navbar = () => {
   const menuButtonRef = useRef(null);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
+    { name: 'Home', href: '#home' },
     { name: 'Courses', href: '#courses' },
     { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const id = href.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        const navbarHeight = 100; // account for fixed navbar
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementPosition - navbarHeight,
-          behavior: 'smooth',
-        });
-      }
-    }
+    scrollToSection(href);
     setIsOpen(false);
   };
 

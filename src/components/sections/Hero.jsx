@@ -16,7 +16,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative flex min-h-[600px] h-[85vh] items-center overflow-hidden bg-secondary-900">
+    <section id="about" className="relative flex min-h-[600px] h-[85vh] items-center overflow-hidden bg-secondary-900">
       <div className="absolute inset-0 z-0">
         <picture className="block h-full w-full">
           <source

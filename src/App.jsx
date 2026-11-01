@@ -19,7 +19,7 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-gray-900 bg-white">
+    <div id="home" className="min-h-screen flex flex-col font-sans text-gray-900 bg-white">
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary-600 z-[100] origin-left"
         style={{ scaleX }}

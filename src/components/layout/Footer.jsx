@@ -1,24 +1,14 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 export const Footer = () => {
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const id = href.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        const navbarHeight = 100;
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementPosition - navbarHeight,
-          behavior: 'smooth',
-        });
-      }
-    }
-  };
+  const links = [
+    { label: 'Home', href: '#home' },
+    { label: 'Courses', href: '#courses' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Contact', href: '#contact' },
+  ];
 
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
@@ -33,13 +23,13 @@ export const Footer = () => {
               Dedicated to excellence in education, providing top-tier coaching for GSEB and CBSE standards to shape the future of students.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
                 <Facebook size={20} />
               </a>
-              <a href="https://www.instagram.com/alpha_classes_anand?dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
+              <a href="https://www.instagram.com/alpha_classes_anand?dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -49,10 +39,20 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              <li><a href="#" onClick={(e) => handleNavClick(e, '#')} className="hover:text-primary-400 transition-colors">Home</a></li>
-              <li><a href="#courses" onClick={(e) => handleNavClick(e, '#courses')} className="hover:text-primary-400 transition-colors">Courses</a></li>
-              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-primary-400 transition-colors">About Us</a></li>
-              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-primary-400 transition-colors">Contact</a></li>
+              {links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(link.href);
+                    }}
+                    className="hover:text-primary-400 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
