@@ -1,44 +1,36 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { scrollToSection } from '../../utils/scrollToSection';
 
 export const Footer = () => {
   const links = [
     { label: 'Home', href: '#home' },
     { label: 'Courses', href: '#courses' },
-    { label: 'About Us', href: '#about' },
+    { label: 'About Us', href: '#location' },
     { label: 'Contact', href: '#contact' },
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand Section */}
-          <div className="space-y-6">
-            <div className="text-2xl font-extrabold text-white tracking-tight">
-              ALPHA<span className="text-primary-400">CLASSES</span>
+    <footer className="footer">
+      <div className="page-width">
+        <div className="footer-grid">
+          <div className="footer-brand-column">
+            <div className="brand footer-brand">
+              <span>ALPHA</span>
+              <span>CLASSES</span>
             </div>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="footer-description body-3">
               Dedicated to excellence in education, providing top-tier coaching for GSEB and CBSE standards to shape the future of students.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
-                <Facebook size={20} />
-              </a>
-              <a href="https://www.instagram.com/alpha_classes_anand?dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
-                <Instagram size={20} />
-              </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white transition-all">
-                <Linkedin size={20} />
-              </a>
+            <div className="footer-socials">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+              <a href="https://www.instagram.com/alpha_classes_anand?dlrf=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-4">
+            <h3 className="title-2">Quick Links</h3>
+            <ul className="footer-link-list">
               {links.map((link) => (
                 <li key={link.label}>
                   <a
@@ -47,7 +39,6 @@ export const Footer = () => {
                       event.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="hover:text-primary-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -56,30 +47,20 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-6">Get In Touch</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
-                <MapPin size={20} className="text-primary-400 shrink-0" />
-                <span>Vivekanand Wadi, Anand,<br />Above SBI ATM, Gujarat</span>
+            <h3 className="title-2">Get In Touch</h3>
+            <ul className="footer-contact">
+              <li>Vivekanand Wadi, Anand,<br />Above SBI ATM, Gujarat</li>
+              <li>
+                <a href="tel:+919825662320">+91 98256 62320</a>
+                <a href="tel:+919979708980">+91 99797 08980</a>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone size={20} className="text-primary-400 shrink-0" />
-                <span className="flex flex-col">
-                  <a href="tel:+919825662320" className="hover:text-primary-400 transition-colors">+91 98256 62320</a>
-                  <a href="tel:+919979708980" className="hover:text-primary-400 transition-colors">+91 99797 08980</a>
-                </span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Mail size={20} className="text-primary-400 shrink-0" />
-                <span>contact.alphaclasses@gmail.com</span>
-              </li>
+              <li>contact.alphaclasses@gmail.com</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+        <div className="footer-bottom">
           <p>© 2026 Alpha Classes. All rights reserved. Designed for Excellence.</p>
         </div>
       </div>

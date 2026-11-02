@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { scrollToSection } from '../../utils/scrollToSection';
 
 export const Navbar = () => {
@@ -14,8 +13,8 @@ export const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
+  const handleNavClick = (event, href) => {
+    event.preventDefault();
     scrollToSection(href);
     setIsOpen(false);
   };
@@ -45,90 +44,81 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav ref={navRef} className="fixed z-50 w-full border-b border-gray-200 bg-white">
-      {/* Top Bar */}
-      <div className="flex items-center justify-between bg-secondary-900 px-4 py-2 text-xs font-medium text-white sm:px-8">
-        <div className="hidden sm:block">GSEB & CBSE · Gujarati & English Medium</div>
-        <div className="flex items-center space-x-3 md:space-x-4">
-          <a href="tel:+919825662320" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span className="truncate">98256 62320</span>
-          </a>
-          <a href="tel:+919979708980" className="flex items-center space-x-1 hover:text-primary-400 transition-colors">
-            <Phone size={12} /> <span className="truncate">99797 08980</span>
+    <nav ref={navRef} data-site-navigation className="site-nav">
+      <div className="site-nav__top caption-1">
+        <div className="site-nav__top-note">GSEB &amp; CBSE · Gujarati &amp; English Medium</div>
+        <div className="site-nav__phones">
+          <a href="tel:+919825662320">98256 62320</a>
+          <a href="tel:+919979708980">99797 08980</a>
+          <a
+            href="https://wa.me/919825662320?text=Hi%2C%20I%20want%20to%20enquire%20about%20coaching%20at%20Alpha%20Classes%2C%20Anand."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-nav__whatsapp"
+            aria-label="WhatsApp Us"
+          >
+            <img src="/whatsapp-logo.png" alt="" />
           </a>
         </div>
       </div>
 
-      {/* Main Nav */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <div className="text-2xl font-black tracking-[-0.06em] md:text-3xl">
-              <span className="text-secondary-900">ALPHA</span>
-              <span className="text-primary-600"> CLASSES</span>
-            </div>
-          </div>
+      <div className="site-nav__main page-width">
+        <a href="#home" className="brand" aria-label="Alpha Classes home">
+          <span>ALPHA</span>
+          <span>CLASSES</span>
+        </a>
 
-          <div className="hidden items-center gap-8 md:flex">
+        <div className="site-nav__links">
+          {navLinks.map((link, index) => (
+            <a
+              key={link.name}
+              href={link.href}
+              aria-current={index === 0 ? 'page' : undefined}
+              onClick={(event) => handleNavClick(event, link.href)}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="nav-toggle"
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
+        >
+          <span className="nav-toggle__lines" aria-hidden="true">
+            <span />
+            <span />
+          </span>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-navigation"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="mobile-nav-panel"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="border-b border-transparent py-2 text-sm font-semibold text-gray-600 transition-colors hover:border-primary-600 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                onClick={(event) => handleNavClick(event, link.href)}
               >
                 {link.name}
               </a>
             ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              ref={menuButtonRef}
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="grid h-12 w-12 place-content-center gap-[6px] rounded-[17px] border border-white/20 bg-secondary-900 text-white shadow-lg shadow-secondary-900/20 transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900"
-              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-controls="mobile-navigation"
-              aria-expanded={isOpen}
-            >
-              {isOpen ? (
-                <X size={24} />
-              ) : (
-                <span aria-hidden="true" className="grid gap-[6px]">
-                  <span className="h-[3px] w-6 rounded-full bg-white" />
-                  <span className="h-[3px] w-6 rounded-full bg-white" />
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Nav */}
-        {isOpen && (
-          <motion.div
-            id="mobile-navigation"
-            initial={{ opacity: 0, scale: 0.96, y: -8 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.18 }}
-            className="absolute right-4 top-full z-[60] mt-2 w-56 overflow-hidden rounded-2xl border border-white/60 bg-white/80 shadow-2xl shadow-secondary-900/20 backdrop-blur-2xl md:hidden"
-          >
-            <div className="space-y-1 p-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block rounded-xl px-4 py-3 text-base font-semibold text-gray-700 transition-colors hover:bg-primary-50 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600"
-                  onClick={(e) => handleNavClick(e, link.href)}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   );
 };

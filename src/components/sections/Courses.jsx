@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 
 export const Courses = () => {
+  const taglineWords = useRef([]);
   const courseData = [
     {
       title: 'Std 9 & 10',
@@ -25,42 +25,72 @@ export const Courses = () => {
     },
   ];
 
+  useEffect(() => {
+    const words = taglineWords.current.filter(Boolean);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      words.forEach((word) => word.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -30% 0px', threshold: 0 },
+    );
+
+    words.forEach((word) => observer.observe(word));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="courses" className="bg-[#f5f7fa] py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-2xl md:mb-16">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">Coaching for every next step.</h2>
-          <p className="text-gray-600 leading-relaxed">
+    <section id="courses" className="section courses-section">
+      <div className="page-width">
+        <div className="section-heading">
+          <h2 className="heading-3 tagline" aria-label="Coaching for every next step.">
+            <span aria-hidden="true">
+              {['Coaching', 'for', 'every', 'next', 'step.'].map((word, index) => (
+                <React.Fragment key={word}>
+                  <span
+                    ref={(element) => { taglineWords.current[index] = element; }}
+                    className="tagline-word"
+                    style={{ transitionDelay: `${index * 60}ms` }}
+                  >
+                    {word}
+                  </span>
+                  {index < 4 ? ' ' : ''}
+                </React.Fragment>
+              ))}
+            </span>
+          </h2>
+          <p className="body-2">
             From school foundations to entrance exam preparation, find the support that fits your goals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-          {courseData.map((course, index) => (
-            <motion.div
-              key={course.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border-t-2 border-primary-500 bg-white px-6 py-7 md:px-8 md:py-9"
-            >
-              <div className="mb-7 flex items-start justify-between gap-4">
+        <div className="course-grid">
+          {courseData.map((course) => (
+            <article key={course.title} className="course-item">
+              <div className="course-head">
                 <div>
-                  <h3 className="mb-2 text-xl font-bold text-secondary-900 md:text-2xl">{course.title}</h3>
-                  <p className="text-sm leading-relaxed text-gray-600">{course.description}</p>
+                  <h3 className="heading-5">{course.title}</h3>
+                  <p className="body-3">{course.description}</p>
                 </div>
-                <span className="font-mono text-sm text-primary-600" aria-hidden="true">0{index + 1}</span>
+                <span className="course-mark" aria-hidden="true" />
               </div>
-              <ul className="grid grid-cols-1 gap-x-4 gap-y-3 border-t border-gray-100 pt-5 sm:grid-cols-2">
+              <ul className="course-features">
                 {course.features.map((feature) => (
-                  <li key={feature} className="flex items-baseline gap-2 text-sm text-gray-700">
-                    <span className="text-primary-600" aria-hidden="true">—</span>
-                    <span>{feature}</span>
-                  </li>
+                  <li key={feature}>{feature}</li>
                 ))}
               </ul>
-            </motion.div>
+            </article>
           ))}
         </div>
       </div>

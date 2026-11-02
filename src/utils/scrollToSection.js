@@ -1,8 +1,12 @@
 export const scrollToSection = (href) => {
   if (!href) return;
 
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ? 'auto'
+    : 'smooth';
+
   if (href === '#') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior });
     return;
   }
 
@@ -11,8 +15,10 @@ export const scrollToSection = (href) => {
 
   if (!element) return;
 
-  const navbarOffset = 96;
-  const top = element.getBoundingClientRect().top + window.scrollY - navbarOffset;
+  const navigationHeight = document
+    .querySelector('[data-site-navigation]')
+    ?.getBoundingClientRect().height ?? 0;
+  const top = element.getBoundingClientRect().top + window.scrollY - navigationHeight - 16;
 
-  window.scrollTo({ top, behavior: 'smooth' });
+  window.scrollTo({ top, behavior });
 };

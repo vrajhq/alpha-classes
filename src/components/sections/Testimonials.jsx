@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
 
 export const Testimonials = () => {
   const reviews = [
@@ -25,36 +23,33 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-white py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-2xl md:mb-16">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">What students say.</h2>
-          <p className="text-gray-600">
+    <section className="section testimonials-section">
+      <div className="testimonials-layout page-width">
+        <div className="section-heading">
+          <h2 className="heading-3">What students say.</h2>
+          <p className="body-2">
             Join hundreds of students who have achieved their academic dreams with our guidance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-          {reviews.map((review, index) => (
-            <motion.div
-              key={review.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="flex flex-col border-t border-gray-200 pt-6"
-            >
-              <div className="mb-4 flex" role="img" aria-label={`${review.rating} out of 5 stars`}>
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={15} className="text-primary-600 fill-primary-600" aria-hidden="true" />
-                ))}
+        <div className="testimonials-list">
+          {reviews.map((review) => (
+            <article key={review.name} className="testimonial">
+              <div>
+                <span
+                  className="testimonial-rating caption-2"
+                  role="img"
+                  aria-label={`${review.rating} out of 5 stars`}
+                >
+                  {review.rating} out of 5 stars
+                </span>
+                <blockquote className="body-2">“{review.text}”</blockquote>
               </div>
-              <p className="mb-7 flex-grow leading-relaxed text-gray-700">“{review.text}”</p>
-              <div className="border-t border-gray-100 pt-4">
-                <div className="font-bold text-secondary-900">{review.name}</div>
-                <div className="text-sm text-gray-500">{review.role}</div>
+              <div className="testimonial-credit">
+                <strong>{review.name}</strong>
+                <span>{review.role}</span>
               </div>
-            </motion.div>
+            </article>
           ))}
         </div>
       </div>

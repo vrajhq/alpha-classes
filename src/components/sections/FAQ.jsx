@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export const FAQ = () => {
   const faqs = [
@@ -27,16 +26,21 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="bg-[#f5f7fa] py-20 md:py-28">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 md:mb-14">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-secondary-900 lg:text-5xl">A few things you might be wondering.</h2>
-          <p className="text-gray-600">Everything you need to know about joining Alpha Classes.</p>
+    <section className="section faq-section">
+      <div className="faq-layout page-width">
+        <div className="section-heading">
+          <h2 className="heading-3">A few things you might be wondering.</h2>
+          <p className="body-2">Everything you need to know about joining Alpha Classes.</p>
         </div>
 
-        <div className="divide-y divide-gray-200 border-y border-gray-200">
+        <div className="faq-list">
           {faqs.map((faq, index) => (
-            <FAQItem key={faq.question} index={index} question={faq.question} answer={faq.answer} />
+            <FAQItem
+              key={faq.question}
+              index={index}
+              question={faq.question}
+              answer={faq.answer}
+            />
           ))}
         </div>
       </div>
@@ -49,29 +53,27 @@ const FAQItem = ({ question, answer, index }) => {
   const answerId = `faq-answer-${index}`;
 
   return (
-    <div>
+    <div className="faq-item">
       <button
         type="button"
         aria-expanded={isOpen}
         aria-controls={answerId}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between gap-5 py-5 text-left text-secondary-900 transition-colors hover:text-primary-700"
+        className="faq-question title-2"
       >
-        <span className="font-semibold">{question}</span>
-        {isOpen ? <ChevronUp size={20} className="shrink-0 text-primary-600" aria-hidden="true" /> : <ChevronDown size={20} className="shrink-0 text-gray-500" aria-hidden="true" />}
+        <span>{question}</span>
+        <span className="faq-icon" aria-hidden="true" />
       </button>
-      <div id={answerId}>
-        <AnimatePresence>
+      <div id={answerId} className="faq-answer" aria-hidden={!isOpen}>
+        <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="max-w-2xl pb-5 pr-8 leading-relaxed text-gray-600">
-                {answer}
-              </div>
+              <p className="body-2">{answer}</p>
             </motion.div>
           )}
         </AnimatePresence>
