@@ -44,7 +44,10 @@ typography:
     fontWeight: 600
     lineHeight: 1.5
 rounded:
-  square: "0px"
+  field: "10px"
+  control: "12px"
+  media: "14px"
+  panel: "18px"
   circle: "50%"
 spacing:
   hairline: "2px"
@@ -63,35 +66,35 @@ components:
   button-primary:
     backgroundColor: "{colors.rust}"
     textColor: "{colors.paper-light}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.control}"
     padding: "12px 24px"
     height: "48px"
     typography: "{typography.button}"
   button-secondary:
     backgroundColor: "{colors.navy}"
     textColor: "{colors.paper-light}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.control}"
     padding: "12px 24px"
     height: "48px"
     typography: "{typography.button}"
   button-outline:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.control}"
     padding: "12px 24px"
     height: "48px"
     typography: "{typography.button}"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.rust-dark}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.control}"
     padding: "12px 24px"
     height: "48px"
     typography: "{typography.button}"
   input-text:
     backgroundColor: "#fffdf8"
     textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.field}"
     padding: "12px 16px"
     height: "48px"
   course-row:
@@ -177,14 +180,14 @@ The system is flat by default: paper contrast, navy fields, and fine rules creat
 
 ## Shapes
 
-Rectangular controls and square-cornered surfaces are the default. Fine horizontal rules, small rust marks, and round list bullets provide the recurring geometry; circular silhouettes are reserved for floating contact controls.
+Soft, compact radii bring a more approachable, Apple-like finish to controls and framed surfaces without changing the prospectus structure. Buttons use 12px corners, fields 10px, the hero photo frame and callback panel 18px, and photography/map media 14px. Fine rules and small rust marks keep the editorial grid precise; circular silhouettes remain reserved for floating contact controls.
 
-**The Square-Edge Rule.** Keep buttons, fields, and content surfaces square-cornered; use circles only where the contact-control shape requires them.
+**The Soft-Corner Rule.** Round touchable controls and framed surfaces consistently; preserve the ruled course and testimonial rows instead of turning them into cards.
 
 ## Components
 
 ### Buttons
-- **Shape:** Square corners (0px radius); minimum height 48px.
+- **Shape:** Soft 12px corners; minimum height 48px.
 - **Primary:** Rust field with light-paper text; 12px by 24px padding.
 - **Secondary:** Navy field with light-paper text.
 - **Outline:** Transparent field with ink border and text; navy fill on hover.
@@ -192,12 +195,16 @@ Rectangular controls and square-cornered surfaces are the default. Fine horizont
 - **Hover / Focus:** Raise 2px on hover, settle on press, and retain the global 3px visible focus outline.
 
 ### Inputs / Fields
-- **Style:** Square, 48px minimum height, light warm fill, and a quiet 1px border.
+- **Style:** Soft 10px corners, 48px minimum height, light warm fill, and a quiet 1px border.
 - **Focus:** Rust border with a translucent 2px rust ring.
 - **Error / Disabled:** Use native validation and disabled states; preserve clear labels and visible focus.
 
 ### Navigation
-- **Style:** Sticky paper masthead with a navy contact strip, compact links, and a ruled active/hover state. On narrow screens, replace inline links with an accessible menu and keep phone and WhatsApp contact paths available.
+- **Style:** Sticky paper masthead with a navy contact strip, compact links, and a ruled active/hover state. The mobile menu control uses 12px corners. On narrow screens, replace inline links with an accessible menu and keep phone and WhatsApp contact paths available.
+
+### Framed Surfaces
+- **Hero photo frame / callback panel:** 18px corners.
+- **Hero photograph / map:** 14px corners, with media clipped to its frame.
 
 ### Course Rows
 - **Style:** Two-column editorial list with generous vertical padding, a rust index mark, and fine separators; stack at mobile widths.
@@ -215,7 +222,7 @@ Rectangular controls and square-cornered surfaces are the default. Fine horizont
 ### Do:
 - **Do** use paper, ink navy, and restrained rust as the recurring palette.
 - **Do** use rules, columns, and whitespace to organize repeated content.
-- **Do** keep primary actions rectangular and visibly keyboard-focusable.
+- **Do** keep primary actions softly rounded and visibly keyboard-focusable.
 - **Do** preserve the existing course, proof, FAQ, location, and callback content.
 
 ### Don't:

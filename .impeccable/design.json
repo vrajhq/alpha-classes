@@ -197,7 +197,7 @@
       "refersTo": "button-primary",
       "description": "Rust-filled call to action.",
       "html": "<button class=\"ds-button-primary\">Request Call Back</button>",
-      "css": ".ds-button-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: 0; background: var(--rust); color: var(--paper-light); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-primary:hover { background: var(--rust-dark); transform: translateY(-2px); } .ds-button-primary:active { transform: translateY(1px) scale(0.98); } .ds-button-primary:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
+      "css": ".ds-button-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: var(--radius-control); background: var(--rust); color: var(--paper-light); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-primary:hover { background: var(--rust-dark); transform: translateY(-2px); } .ds-button-primary:active { transform: translateY(1px) scale(0.98); } .ds-button-primary:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
     },
     {
       "name": "Secondary Button",
@@ -205,7 +205,7 @@
       "refersTo": "button-secondary",
       "description": "Navy-filled secondary action.",
       "html": "<button class=\"ds-button-secondary\">Call the Centre</button>",
-      "css": ".ds-button-secondary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: 0; background: var(--navy); color: var(--paper-light); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-secondary:hover { background: #101b30; transform: translateY(-2px); } .ds-button-secondary:active { transform: translateY(1px) scale(0.98); } .ds-button-secondary:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
+      "css": ".ds-button-secondary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: var(--radius-control); background: var(--navy); color: var(--paper-light); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-secondary:hover { background: #101b30; transform: translateY(-2px); } .ds-button-secondary:active { transform: translateY(1px) scale(0.98); } .ds-button-secondary:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
     },
     {
       "name": "Outline Button",
@@ -213,7 +213,7 @@
       "refersTo": "button-outline",
       "description": "Transparent secondary action with an ink border.",
       "html": "<button class=\"ds-button-outline\">View courses</button>",
-      "css": ".ds-button-outline { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-outline:hover { background: var(--navy); color: var(--paper-light); transform: translateY(-2px); } .ds-button-outline:active { transform: translateY(1px) scale(0.98); } .ds-button-outline:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
+      "css": ".ds-button-outline { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid var(--ink); border-radius: var(--radius-control); background: transparent; color: var(--ink); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-outline:hover { background: var(--navy); color: var(--paper-light); transform: translateY(-2px); } .ds-button-outline:active { transform: translateY(1px) scale(0.98); } .ds-button-outline:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
     },
     {
       "name": "Ghost Button",
@@ -221,7 +221,7 @@
       "refersTo": "button-ghost",
       "description": "Low-emphasis transparent action.",
       "html": "<button class=\"ds-button-ghost\">Learn more</button>",
-      "css": ".ds-button-ghost { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--rust-dark); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-ghost:hover { background: #e9e0d1; transform: translateY(-2px); } .ds-button-ghost:active { transform: translateY(1px) scale(0.98); } .ds-button-ghost:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
+      "css": ".ds-button-ghost { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: var(--radius-control); background: transparent; color: var(--rust-dark); font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; cursor: pointer; transition: color 250ms, background-color 250ms, border-color 250ms, transform 250ms; } .ds-button-ghost:hover { background: #e9e0d1; transform: translateY(-2px); } .ds-button-ghost:active { transform: translateY(1px) scale(0.98); } .ds-button-ghost:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }"
     },
     {
       "name": "Navigation",
@@ -235,9 +235,9 @@
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input-text",
-      "description": "Labeled square field with a quiet border and rust focus ring.",
+      "description": "Labeled soft-corner field with a quiet border and rust focus ring.",
       "html": "<label class=\"ds-field-label\" for=\"ds-name\">Full Name</label><input class=\"ds-field\" id=\"ds-name\" type=\"text\" placeholder=\"Amit Patel\" />",
-      "css": ".ds-field-label { display: block; margin-bottom: 8px; color: var(--ink); font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.33; } .ds-field { width: 100%; min-height: 48px; padding: 12px 16px; border: 1px solid #c9c3b6; border-radius: 0; background: #fffdf8; color: var(--ink); font-family: Poppins, sans-serif; font-size: 14px; line-height: 1.5; transition: border-color 250ms, box-shadow 250ms; } .ds-field::placeholder { color: #626b78; opacity: 1; } .ds-field:focus { border-color: var(--rust); outline: 0; box-shadow: 0 0 0 2px rgb(167 68 50 / 20%); }"
+      "css": ".ds-field-label { display: block; margin-bottom: 8px; color: var(--ink); font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.33; } .ds-field { width: 100%; min-height: 48px; padding: 12px 16px; border: 1px solid #c9c3b6; border-radius: var(--radius-field); background: #fffdf8; color: var(--ink); font-family: Poppins, sans-serif; font-size: 14px; line-height: 1.5; transition: border-color 250ms, box-shadow 250ms; } .ds-field::placeholder { color: #626b78; opacity: 1; } .ds-field:focus { border-color: var(--rust); outline: 0; box-shadow: 0 0 0 2px rgb(167 68 50 / 20%); }"
     },
     {
       "name": "Course Row",
@@ -281,15 +281,15 @@
         "section": "elevation"
       },
       {
-        "name": "The Square-Edge Rule",
-        "body": "Keep buttons, fields, and content surfaces square-cornered; use circles only where the contact-control shape requires them.",
+        "name": "The Soft-Corner Rule",
+        "body": "Round touchable controls and framed surfaces consistently; preserve the ruled course and testimonial rows instead of turning them into cards.",
         "section": "shapes"
       }
     ],
     "dos": [
       "Do use paper, ink navy, and restrained rust as the recurring palette.",
       "Do use rules, columns, and whitespace to organize repeated content.",
-      "Do keep primary actions rectangular and visibly keyboard-focusable.",
+      "Do keep primary actions softly rounded and visibly keyboard-focusable.",
       "Do preserve the existing course, proof, FAQ, location, and callback content."
     ],
     "donts": [
