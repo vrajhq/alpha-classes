@@ -1188,6 +1188,14 @@ img {
   background: var(--rust-dark);
 }
 
+.floating-action.whatsapp-action,
+.floating-action.whatsapp-action:hover {
+  border-color: transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .floating-action img {
   width: 42px;
   height: 42px;
